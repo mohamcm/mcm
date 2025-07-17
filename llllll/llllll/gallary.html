@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery & Data | Jamhuriya University Final Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/jpeg" href="jamacad.jpg" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a>Home</li>
+        <li><a href="gallery.html">Gallery & Data</a>Gallery  & Data</li>
+        <li><a href="booking.html">Booking</a>Booking</li>
+        <li><a href="help.html">Help</a>Help</li>
+        <li><a href="about.html">About</a>About</li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main-flex">
+    <section class="gallery-data-flex" style="display: flex; gap: 2rem; align-items: flex-start;">
+      <div class="data-section" style="flex: 1;">
+        <h2>Student Data Table</h2>
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Major</th><th>Email</th></tr>
+          </thead>
+          <tbody>
+            <tr id="student1"><td>Ahmed Ali</td><td>IT</td><td>ahmed.ali@example.com</td></tr>
+            <tr id="student2"><td>Hodan Hassan</td><td>Engineering</td><td>hodan.hassan@example.com</td></tr>
+            <tr id="student3"><td>Maryan Yusuf</td><td>Business</td><td>maryan.yusuf@example.com</td></tr>
+            <tr id="student4"><td>Abdi Fadumo</td><td>IT</td><td>abdi.fadumo@example.com</td></tr>
+            <tr id="student5"><td>Fatima Omar</td><td>Engineering</td><td>fatima.omar@example.com</td></tr>
+            <tr id="student6"><td>Yusuf Mohamed</td><td>Business</td><td>yusuf.mohamed@example.com</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="3">Sample Student List</td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="gallery-section" style="flex: 1;">
+        <h2>Image Gallery</h2>
+        <div class="gallery-images">
+          <img src="arday.png" alt="Student studying on Laptop" data-student="student1" style="cursor:pointer;" />
+          <img src="jamacad.jpg" alt="Modern University Classroom" data-student="student2" style="cursor:pointer;" />
+          <img src="coding.jpg" alt="Coding Project on Computer Screen" data-student="student3" style="cursor:pointer;" />
+          <img src="favicon.png" alt="University Logo" data-student="student4" style="cursor:pointer;" />
+          <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=400&q=80" alt="Students in Library" data-student="student5" style="cursor:pointer;" />
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Campus Building" data-student="student6" style="cursor:pointer;" />
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+  <script>
+    // Highlight the corresponding student row when an image is clicked
+    document.querySelectorAll('.gallery-images img').forEach(function(img) {
+      img.addEventListener('click', function() {
+        // Remove highlight from all rows
+        document.querySelectorAll('.data-section tr').forEach(function(row) {
+          row.classList.remove('highlight-row');
+        });
+        // Highlight the corresponding row
+        var studentId = img.getAttribute('data-student');
+        var row = document.getElementById(studentId);
+        if(row) row.classList.add('highlight-row');
+      });
+    });
+  </script>
+  <style>
+    .highlight-row {
+      background-color: #ffe082 !important;
+      transition: background 0.3s;
+    }
+  </style>
+    <p>&copy; 2025 Jamhuriya University of Science & Technology | Faculty of Computer & IT</p>
+  </footer>
+</body>
+</html>
